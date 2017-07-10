@@ -16,6 +16,7 @@ function setup(){
   image(img1, 0, 0, 100, 100);
   image(img1, 0, 0, 100, 100, 0, 0, 100, 100);
   console.log(img1.toString());
+  console.log(img1);
 }
 
 function draw(){
