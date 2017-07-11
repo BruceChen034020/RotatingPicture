@@ -5,6 +5,7 @@ var nowImageNumber;
 var car;
 
 function setup(){
+  nowImageNumber = 0;
   createCanvas(800, 600);
   background(0);
   button1 = createButton("黃于軒");
@@ -13,7 +14,7 @@ function setup(){
   slider1 = createSlider(-PI, PI, 0, 0.01);
   /*img1 = loadImage("Huang.jpg");
   img2 = loadImage("Yang.jpg");*/
-  button1.mousePressed();
+  /*button1.mousePressed();
   button2.mousePressed(DisplayImg2);
   /*image(img1, 0, 0);
   image(img1, 0, 0, 100, 100);
@@ -24,11 +25,13 @@ function setup(){
   img1.image = document.getElementById("Huang");
   img1.number = 1;
   img1.button = button1;
+  button1.mousePressed(img1.initialization);
 
   img2 = new Image();
   img2 = document.getElementById("Yang");
   img2.number = 2;
   img2.button = button2;
+  button2.mousePressed(img2.initialization);
   // slider1.changed(slider1_Changed);
 
   car = new Car();
@@ -47,8 +50,8 @@ function draw(){
   translate(width/2, height/2);
   push();
   rotate(slider1.value());
-  DisplayImg1();
-  frameRate(5);
+  //DisplayImg1();
+  frameRate(20);
   //line(0, 0, 0, 100);
   pop();
   switch(nowImageNumber){
@@ -75,9 +78,9 @@ function draw(){
     console.log("drawImage");
 }*/
 
-function DisplayImg2(){
+/*function DisplayImg2(){
   console.log(img2);
-}
+}*/
 
 function Car() {
   this.wheels = 4;
@@ -95,7 +98,7 @@ function Image(){
   this.image;
   this.number;
   this.button;
-  this.initializtion = function(){
+  this.initialization = function(){
     nowImageNumber = number;
     
   }
@@ -103,7 +106,7 @@ function Image(){
     var c=document.getElementById("defaultCanvas0");
     var ctx=c.getContext("2d");
     
-    ctx.drawImage(img1,-250,-250);
+    ctx.drawImage(image,-250,-250);
     console.log("drawImage");
   }
 }
