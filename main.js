@@ -25,17 +25,24 @@ function setup(){
   img1.image = document.getElementById("Huang");
   img1.number = 1;
   img1.button = button1;
-  button1.mousePressed(img1.initialization);
+  button1.mousePressed(img1.initializtion);
+  //button1.mousePressed(showImg1Number);
+  console.log(img1.number);
+  img1.showNumber();
 
   img2 = new Image();
   img2 = document.getElementById("Yang");
   img2.number = 2;
   img2.button = button2;
-  button2.mousePressed(img2.initialization);
+  //button2.mousePressed(img2.initialization);
   // slider1.changed(slider1_Changed);
 
   car = new Car();
   
+}
+
+function showImg1Number(){
+  console.log("showImg1Number: " + img1.number);
 }
 
 // function slider1_Changed(){
@@ -98,9 +105,10 @@ function Image(){
   this.image;
   this.number;
   this.button;
-  this.initialization = function(){
-    nowImageNumber = number;
-    
+  this.initializtion = function(){
+    console.log(this.number);
+    nowImageNumber = this.number;
+    console.log(this.number);
   }
   this.displayImg = function(){
     var c=document.getElementById("defaultCanvas0");
@@ -108,6 +116,9 @@ function Image(){
     
     ctx.drawImage(image,-250,-250);
     console.log("drawImage");
+  }
+  this.showNumber = function(){
+    console.log("showNumber: " + this.number);
   }
 }
 /*Image.prototype.initialization = function(){
